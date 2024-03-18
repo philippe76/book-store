@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+body {
+    background-color: #373737;
+    color: #f5f5f5;
+    font-family: 'Mochiy Pop P One', sans-serif;
+}
+
+/* ... HEADER ... */
+
+h1 {
+    text-align: center;
+}
+
+h1 span, h1 .fa-book-open {
+    color: #008080
+}
+
+.fa-book-open {
+    margin: 0 0.5em;
+}
+
+
+/* ... TABLE ... */
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 3em auto;
+}
+
+table thead, table tbody {
+    border-top: 2px solid #808080; 
+}
+
+table th {
+    text-align: left;
+    padding: 1em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+th i.fa-sort-down {
+    vertical-align: text-top;
+}
+
+th i.fa-sort-up {
+    vertical-align: text-bottom;
+}
+
+table td {
+    padding: 1.1em;
+    color: #c2c2c2;
+    border-bottom: 1px solid rgba(128, 128, 128, .5);
+}
+
+table td:last-of-type {
+    text-align: right;
+}
+
+table button {
+    border-radius : 0.3em;
+    border: none;
+    cursor: pointer;
+    padding: 0.5em 0.8em;
+    font-size: 1.2em;
+    color: #f5f5f5;
+}
+
+table button:has(.fa-trash-alt) {
+    background-color:#b65353;
+}
+
+table button:has(.fa-pen) {
+    background-color: #7b7d7b;
+
+}
+
+#getForm {
+    display: block;
+    width: 4.5rem;
+    height: 1rem;
+    line-height: 1rem;
+    float: right;
+    border-radius : 0.3em;
+    border: none;
+    background-color: #008080;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1rem;
+    margin: 1rem;
+}
+
+
+.callToAction {
+    transition: 0.2s ease-out;
+}    
+.callToAction:hover {
+    filter: brightness(90%);
+}
+.callToAction:active {
+    transform: scale(0.85);
+}
