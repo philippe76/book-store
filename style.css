@@ -102,3 +102,59 @@ table button:has(.fa-pen) {
 .callToAction:active {
     transform: scale(0.85);
 }
+
+
+/* ... FORM ... */
+
+
+form {
+    display: none;
+    width: 50%;
+    height: 400px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form label {
+    margin-bottom: 1rem;
+}
+
+form input {
+    width: 50%;
+    display: block;
+    margin-bottom: 1rem;
+    padding: 0.6em 0.4em;
+    outline: none;
+    font-size: 1rem;
+    color: #808080;
+    font-weight: 600;
+}
+ 
+#addBook {
+    margin-top: 1em;
+    padding: 0.6em 1em;
+    font-size: 1.3em;
+    font-weight: 600;
+    border-radius : 0.3em;
+    border: none;
+    background-color: #008080;
+    color: #f5f5f5;
+    cursor: pointer;
+}
+
+
+.modal {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #b65353;
+    color: #f5f5f5;
+    z-index: 100;
+}
+
+.lessOpacity {
+    opacity: 0.1;
+}
