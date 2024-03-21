@@ -4,6 +4,16 @@ let booksToDisplay = [...books];
 
 displayBooks();
 
+const sortIcons = [...document.querySelectorAll('th .fa-solid')];
+
+sortIcons.forEach(item => {
+    item.onclick = function() {
+
+        sortBooks(this);
+        displayBooks();
+    }
+})
+
 
 function displayBooks() {
 
@@ -38,4 +48,40 @@ function deleteBook(book) {
 
     booksToDisplay = booksToDisplay.filter(item => item.title !== book)
     displayBooks()
+}
+
+function sortBooks(sortIcon) {
+
+    if (sortIcon.className.includes('down')) {
+
+        sortIcon.classList.remove('fa-sort-down');
+        sortIcon.classList.add('fa-sort-up')
+
+        switch (sortIcon.dataset.info) {
+            case 'title': 
+                booksToDisplay.sort( (a, b) => a.title.toUpperCase().localeCompare(b.title.toUpperCase()) );
+                break;
+            case 'author':
+                booksToDisplay.sort( (a, b) => a.author.toUpperCase().localeCompare(b.author.toUpperCase()) );
+                break
+            default: 
+                booksToDisplay.sort( (a, b) => a.year - b.year );
+        }
+    }
+    else {
+
+        sortIcon.classList.remove('fa-sort-up')
+        sortIcon.classList.add('fa-sort-down');
+
+        switch (sortIcon.dataset.info) {
+            case 'title': 
+                booksToDisplay.sort( (a, b) => b.title.localeCompare(a.title) );
+                break;
+            case 'author':
+                booksToDisplay.sort( (a, b) => b.author.localeCompare(a.author) );
+                break
+            default: 
+                booksToDisplay.sort( (a, b) => b.year - a.year );
+        }
+    }
 }
