@@ -5,9 +5,6 @@ let booksToDisplay = [...books];
 displayBooks();
 
 
-
-
-
 function displayBooks() {
 
     document.querySelector('form').classList.remove('modal');
@@ -29,9 +26,16 @@ function displayBooks() {
 
     const deleteButtons = document.querySelectorAll('button:has(.fa-trash-alt)');
 
-    // deleteButtons.forEach(item => {
-    //     item.onclick =  function() {
-    //         deleteBook(item.dataset.book);
-    //     }   
-    // })
+    deleteButtons.forEach(item => {
+        item.onclick =  function() {
+            deleteBook(item.dataset.book);
+        }   
+    })
+}
+
+
+function deleteBook(book) {
+
+    booksToDisplay = booksToDisplay.filter(item => item.title !== book)
+    displayBooks()
 }
