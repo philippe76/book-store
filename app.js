@@ -17,10 +17,25 @@ sortIcons.forEach(item => {
 
 // display form to add new book
 document.getElementById('getForm').addEventListener('click', function(){
-
     displayFormModal();
 })
 
+// fires addBook function when submitting form
+document.getElementById('addBook').addEventListener('click', function(e) {
+    e.preventDefault();
+    addBook({
+        title: title.value,
+        author: author.value,
+        year: year.value,
+    });
+
+    displayBooks();
+})
+
+
+// ******************************** //
+// ********  FUNCTIONS  *********** //
+// ******************************** //
 
 // display all books from storage
 function displayBooks() {
@@ -49,6 +64,12 @@ function displayBooks() {
             deleteBook(item.dataset.book);
         }   
     })
+}
+
+// add a book
+function addBook(book) {
+    booksToDisplay.unshift(book);
+    displayBooks();
 }
 
 // delete a book
