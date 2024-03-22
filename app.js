@@ -6,6 +6,7 @@ displayBooks();
 
 const sortIcons = [...document.querySelectorAll('th .fa-solid')];
 
+// connect sortBook function to sort icons
 sortIcons.forEach(item => {
     item.onclick = function() {
 
@@ -14,7 +15,14 @@ sortIcons.forEach(item => {
     }
 })
 
+// display form to add new book
+document.getElementById('getForm').addEventListener('click', function(){
 
+    displayFormModal();
+})
+
+
+// display all books from storage
 function displayBooks() {
 
     document.querySelector('form').classList.remove('modal');
@@ -43,13 +51,14 @@ function displayBooks() {
     })
 }
 
-
+// delete a book
 function deleteBook(book) {
 
     booksToDisplay = booksToDisplay.filter(item => item.title !== book)
     displayBooks()
 }
 
+// sort Books by alphabetic order for date / author / title
 function sortBooks(sortIcon) {
 
     if (sortIcon.className.includes('down')) {
@@ -84,4 +93,10 @@ function sortBooks(sortIcon) {
                 booksToDisplay.sort( (a, b) => b.year - a.year );
         }
     }
+}
+
+// display modal form to add a new book
+function displayFormModal() {
+    document.querySelector('form').classList.add('modal');
+    document.querySelector('table').classList.add('lessOpacity');
 }
