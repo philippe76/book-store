@@ -37,6 +37,16 @@ document.getElementById('addBook').addEventListener('click', function(e) {
 // ********  FUNCTIONS  *********** //
 // ******************************** //
 
+// display modal for user loging or creating user account
+function displayLoginModal() {
+
+}
+
+// create user account 
+function createAccount() {
+
+}
+
 // display all books from storage
 function displayBooks() {
 
@@ -118,6 +128,6 @@ function sortBooks(sortIcon) {
 
 // display modal form to add a new book
 function displayFormModal() {
-    document.querySelector('form').classList.add('modal');
+    document.getElementById('addNewBookForm').classList.add('modal');
     document.querySelector('table').classList.add('lessOpacity');
 }
