@@ -93,7 +93,7 @@ table button:has(.fa-pen) {
 
 }
 
-#getForm {
+#getBookForm {
     display: block;
     width: 4.5rem;
     height: 1rem;
@@ -147,7 +147,7 @@ form input {
     font-weight: 600;
 }
  
-#addBook {
+.callToAction {
     margin-top: 1em;
     padding: 0.6em 1em;
     font-size: 1.3em;
@@ -166,7 +166,7 @@ form input {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #b65353;
+    background-color: #b36868e5;
     color: #f5f5f5;
     z-index: 100;
 }

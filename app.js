@@ -15,12 +15,17 @@ sortIcons.forEach(item => {
     }
 })
 
-// display form to add new book
-document.getElementById('getForm').addEventListener('click', function(){
-    displayFormModal();
+// display userAccount form
+document.getElementById('userAcountBtn').addEventListener('click', function() {
+    displayFormModal('userAccountForm');
 })
 
-// fires addBook function when submitting form
+// display form to add new book
+document.getElementById('getBookForm').addEventListener('click', function(){
+    displayFormModal('newBookForm');
+})
+
+// fires addBook function when submitting getBookForm
 document.getElementById('addBook').addEventListener('click', function(e) {
     e.preventDefault();
     addBook({
@@ -50,7 +55,7 @@ function createAccount() {
 // display all books from storage
 function displayBooks() {
 
-    document.querySelector('form').classList.remove('modal');
+    document.getElementById('newBookForm').classList.remove('modal');
     document.querySelector('table').classList.remove('lessOpacity');
 
     document.querySelector('tbody').innerHTML = '';   
@@ -127,7 +132,7 @@ function sortBooks(sortIcon) {
 }
 
 // display modal form to add a new book
-function displayFormModal() {
-    document.getElementById('addNewBookForm').classList.add('modal');
+function displayFormModal(formID) {
+    document.getElementById(formID).classList.add('modal');
     document.querySelector('table').classList.add('lessOpacity');
 }
