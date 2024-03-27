@@ -16,14 +16,13 @@ sortIcons.forEach(item => {
 })
 
 // display userAccount form
-document.getElementById('userAcountBtn').addEventListener('click', function() {
-    displayFormModal('userAccountForm');
-})
+document.getElementById('userAcountBtn').onclick = () =>  displayFormModal('userAccountForm');
+
+// fires createAccount function when submitting userAccountForm
+document.getElementById('getUserAccount').onclick = createAccount;
 
 // display form to add new book
-document.getElementById('getBookForm').addEventListener('click', function(){
-    displayFormModal('newBookForm');
-})
+document.getElementById('getBookForm').onclick = () => displayFormModal('newBookForm');
 
 // fires addBook function when submitting getBookForm
 document.getElementById('addBook').addEventListener('click', function(e) {
@@ -48,7 +47,27 @@ function displayLoginModal() {
 }
 
 // create user account 
-function createAccount() {
+function createAccount(event) {
+
+
+    document.getElementById('userAccountForm').classList.remove('modal');
+
+    event.preventDefault();
+
+
+    if (!localStorage.user) {
+        const userObject = {
+            userName : userName.value,
+            userPassword : userPassword.value
+        };
+    
+        localStorage.user = JSON.stringify(userObject)
+
+
+    }
+    else {
+        console.log('Welcome back');
+    }
 
 }
 
@@ -136,3 +155,4 @@ function displayFormModal(formID) {
     document.getElementById(formID).classList.add('modal');
     document.querySelector('table').classList.add('lessOpacity');
 }
+
