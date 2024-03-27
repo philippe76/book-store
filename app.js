@@ -57,16 +57,16 @@ function createAccount(event) {
 
     if (!localStorage.user) {
         const userObject = {
-            userName : userName.value,
-            userPassword : userPassword.value
+            name : userName.value,
+            password : userPassword.value
         };
     
-        localStorage.user = JSON.stringify(userObject)
-
-
+        localStorage.user = JSON.stringify(userObject);
     }
     else {
         console.log('Welcome back');
+        console.log(JSON.parse(localStorage.user).name);
+        document.querySelector('.user-name').textContent = JSON.parse(localStorage.user).name
     }
 
 }
