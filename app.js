@@ -68,16 +68,29 @@ function createAccount(event) {
     }
     else {
 
-        
-        document.querySelector('.user-name').textContent = JSON.parse(localStorage.user).name;
-        booksToDisplay = JSON.parse(localStorage.user).books;
+        if (!checkUserAccount()) {
+            console.log('ERREUR DE SAISIE');
+        }
+        else {
+            document.querySelector('.user-name').textContent = JSON.parse(localStorage.user).name;
+            booksToDisplay = JSON.parse(localStorage.user).books;
+
+        }
     }
     
     displayBooks()
 
 }
 
-
+// check name and password
+function checkUserAccount() {
+    if (userName.value !== JSON.parse(localStorage.user).name || userPassword.value !== JSON.parse(localStorage.user).password) {
+        return false
+    }
+    else {
+        return true
+    }
+}
 
 
 // display all books from storage
