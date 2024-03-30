@@ -61,16 +61,24 @@ function createAccount(event) {
             password : userPassword.value,
             books : []
         };
-    
+        document.querySelector('.user-name').textContent = userName.value;
+        booksToDisplay = [];
+
         localStorage.user = JSON.stringify(userObject);
     }
     else {
+
+        
         document.querySelector('.user-name').textContent = JSON.parse(localStorage.user).name;
         booksToDisplay = JSON.parse(localStorage.user).books;
-        displayBooks()
     }
+    
+    displayBooks()
 
 }
+
+
+
 
 // display all books from storage
 function displayBooks() {
