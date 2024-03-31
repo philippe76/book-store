@@ -74,7 +74,6 @@ function createAccount(event) {
         else {
             document.querySelector('.user-name').textContent = JSON.parse(localStorage.user).name;
             booksToDisplay = JSON.parse(localStorage.books);
-            console.log(JSON.parse(localStorage.books));
         }
     }
     
@@ -131,8 +130,7 @@ function addBook(book) {
 
     const userBooks = JSON.parse(localStorage.getItem('books')) || [];
     userBooks.unshift(book);
-    localStorage.books = JSON.stringify(userBooks);
-        
+    localStorage.books = JSON.stringify(userBooks);        
     }
 
     displayBooks();
@@ -141,8 +139,9 @@ function addBook(book) {
 // delete a book
 function deleteBook(book) {
 
-    booksToDisplay = booksToDisplay.filter(item => item.title !== book)
-    displayBooks()
+    booksToDisplay = booksToDisplay.filter(item => item.title !== book);
+    localStorage.books = JSON.stringify(booksToDisplay);  
+    displayBooks();
 }
 
 // sort Books by alphabetic order for date / author / title
