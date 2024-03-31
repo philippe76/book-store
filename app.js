@@ -56,15 +56,15 @@ function createAccount(event) {
 
 
     if (!localStorage.user) {
-        const userObject = {
+        const userLoginInfos = {
             name : userName.value,
-            password : userPassword.value,
-            books : []
+            password : userPassword.value
         };
         document.querySelector('.user-name').textContent = userName.value;
         booksToDisplay = [];
 
-        localStorage.user = JSON.stringify(userObject);
+        localStorage.user = JSON.stringify(userLoginInfos);
+        localStorage.books = JSON.stringify([]);
     }
     else {
 
@@ -73,8 +73,8 @@ function createAccount(event) {
         }
         else {
             document.querySelector('.user-name').textContent = JSON.parse(localStorage.user).name;
-            booksToDisplay = JSON.parse(localStorage.user).books;
-
+            booksToDisplay = JSON.parse(localStorage.books);
+            console.log(JSON.parse(localStorage.books));
         }
     }
     
@@ -125,6 +125,16 @@ function displayBooks() {
 // add a book
 function addBook(book) {
     booksToDisplay.unshift(book);
+
+    // if user connecter
+    if (document.querySelector('.user-name').textContent) {
+
+    const userBooks = JSON.parse(localStorage.getItem('books')) || [];
+    userBooks.unshift(book);
+    localStorage.books = JSON.stringify(userBooks);
+        
+    }
+
     displayBooks();
 }
 
